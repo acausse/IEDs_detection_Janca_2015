@@ -221,6 +221,8 @@ def get_IEDs(trace, sr, k=3, extend_ms=120, win_s=5, step_s=1, verbose=True, ver
     """
     Detects interictal epileptiform discharges (IEDs) from an intracranial EEG (iEEG) signal.
 
+    return badWins, IEDs
+
     Parameters:
     ----------
     trace : np.ndarray
@@ -239,7 +241,12 @@ def get_IEDs(trace, sr, k=3, extend_ms=120, win_s=5, step_s=1, verbose=True, ver
         If True, prints progress updates (default is True).
     verbose_win_mult : int, optional
         Prints progress every X windows computed (default is 100).
-
+        
+    -------
+    Small differences:
+        - notch filter is IIR
+        - k=3 by default to detect IEDs with higher sensitivity, lower specificity is tolerated
+    
     Returns:
     -------
     badWins : np.ndarray
