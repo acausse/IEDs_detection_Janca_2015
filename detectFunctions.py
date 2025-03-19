@@ -10,6 +10,11 @@ from scipy.signal import hilbert, cheby2, lfilter, iirnotch
 def get_smooth(signal, N, sigma, kernel_type = 'gaussian', return_kernel = False):
     """
     Smooths a given signal using either a Gaussian or a rectangular (boxcar) kernel.
+
+    if return_kernel:
+        return signal_smoothened, kernel
+    else:
+        return signal_smoothened
     
     Parameters:
     ----------
@@ -54,6 +59,8 @@ def get_smooth(signal, N, sigma, kernel_type = 'gaussian', return_kernel = False
   def get_timeWinsIntersect(itwA, itwB, lastPoint, firstPoint=0, verbose=False, lfp=None):
     """
     Computes the intersection of two sets of time windows and returns the non-overlapping portions.
+
+    return itwTot
 
     Parameters:
     ----------
@@ -124,6 +131,8 @@ def get_timeWins4TimeVect(timeVect, dtype = int):
     """
     Converts a time vector into a series of consecutive time windows.
 
+    return timeWins
+
     Parameters:
     ----------
     timeVect : np.ndarray
@@ -153,6 +162,8 @@ def get_timeWins4TimeVect(timeVect, dtype = int):
 def get_timeWinsOverlapping(START, END, win_size, step):
     """
     Generates overlapping time windows within a specified range.
+
+    return wins
 
     Parameters:
     ----------
@@ -186,6 +197,8 @@ def get_timeWinsTemplatedSignal(signal, timeWins, nTimePoints = None, filling = 
     """
     Extracts and templates signal segments based on provided time windows.
 
+    return templatedSignal
+    
     Parameters:
     ----------
     signal : np.ndarray
