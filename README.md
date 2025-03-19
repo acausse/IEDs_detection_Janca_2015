@@ -2,11 +2,14 @@
 
 This repository contains Python functions for detecting **interictal epileptiform discharges (IEDs)** from **intracranial EEG (iEEG) signals**. Additionally, it includes utility functions for **managing time windows**, which are essential for analyzing neural signals.  
 
-This is based on the following paper that you need to cite for reference:
+
+## 📖 References
+This implementation is based on:
+
+Janca, R., Jezdik, P., Cmejla, R., Tomasek, M., Worrell, G. A., Stead, M., Wagenaar, J., Jefferys, J. G. R., Krsek, P., Komarek, V., Jiruska, P., & Marusic, P. (2015).
+Detection of interictal epileptiform discharges using signal envelope distribution modelling: application to epileptic and non-epileptic intracranial recordings.
+Brain Topography.
 https://link.springer.com/article/10.1007/s10548-014-0379-1
-Detection of interictal epileptiform discharges using signal envelope distribution modelling: application to epileptic and non-epileptic intracranial recordings
-        Radek Janca, Petr Jezdik, Roman Cmejla, Martin Tomasek, Gregory A Worrell, Matt Stead, Joost Wagenaar, John G R Jefferys, Pavel Krsek, Vladimir Komarek, Premysl Jiruska, Petr Marusic
-         Brain Topogr. 2015
          
 ## 📌 Features
 - **`get_IEDs`**: Implements an IED detection method based on signal envelope distribution modeling.
@@ -27,9 +30,11 @@ from scipy.signal import resample
 srNew = 200  # Target sampling rate
 n2resamp = int(srNew / sr * trace.shape[0])
 trace_ds = resample(trace, n2resamp)
+```
 
 ## 📦 Installation
 To install the necessary dependencies, run:
 
 ```bash
 pip install numpy scipy
+```
