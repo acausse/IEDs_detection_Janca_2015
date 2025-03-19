@@ -8,7 +8,6 @@ Detection of interictal epileptiform discharges using signal envelope distributi
         Radek Janca, Petr Jezdik, Roman Cmejla, Martin Tomasek, Gregory A Worrell, Matt Stead, Joost Wagenaar, John G R Jefferys, Pavel Krsek, Vladimir Komarek, Premysl Jiruska, Petr Marusic
          Brain Topogr. 2015
          
-
 ## 📌 Features
 - **`get_IEDs`**: Implements an IED detection method based on signal envelope distribution modeling.
 - **`get_smooth`**: Smooths a given signal using either a Gaussian or a rectangular kernel.
@@ -17,6 +16,17 @@ Detection of interictal epileptiform discharges using signal envelope distributi
   - `get_timeWinsIntersect`: Merges and extracts non-overlapping portions of time windows.
   - `get_timeWins4TimeVect`: Converts a time vector into consecutive time windows.
   - `get_timeWinsTemplatedSignal`: Extracts and templates signal segments based on defined time windows.
+
+## 📌 Important Note: Downsampling to 200 Hz
+To speed up computation, it is highly recommended to downsample the signal to 200 Hz before applying get_IEDs.
+
+Suggested Python code for downsampling:
+from scipy.signal import resample
+
+```python
+srNew = 200  # Target sampling rate
+n2resamp = int(srNew / sr * trace.shape[0])
+trace_ds = resample(trace, n2resamp)
 
 ## 📦 Installation
 To install the necessary dependencies, run:
